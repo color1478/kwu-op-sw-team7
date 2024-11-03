@@ -4,14 +4,14 @@ kwu-opensource-sw-team7
 # Project Title
 주제명
 
-# Intro
+## Intro
 소개
 디렉토리 구조
 
-# Details
+## Details
 설명
 
-# Team / members
+## Team / members
 | name | student | roles |
 |---|----------|------------|
 | 이제호 | 2023202076 | 기능1, 기능2, 기능3 |
@@ -20,13 +20,13 @@ kwu-opensource-sw-team7
 | 정민지 | 2023202053 | 기능1, 기능2, 기능3 |
 | 최은준 | 2023202043 | 기능1, 기능2, 기능3 |
 
-# Schedule
+## Schedule
 
-# to do list
+## to do list
 - [ ] 주제 정하기
 - [ ] 담당 정하기
 
-# Required technologies
+## Required technologies
 * HTML
 * CSS
 * JS
