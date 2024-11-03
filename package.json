@@ -2,10 +2,13 @@
   "name": "kwu-op-sw-team7",
   "version": "0.0.1",
   "description": "kwu-opensource-sw-team7",
-  "main": "main.js",
+  "main": "./main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "kwu-op-sw-team7": "^0.0.1"
+  }
 }
