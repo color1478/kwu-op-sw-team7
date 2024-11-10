@@ -24,10 +24,24 @@ everytime 연동
 ## Schedule
 
 ## to do list
-[v] 주제 정하기
-[v] 담당 정하기
-[ ] 세부 기획내용 정리
-[ ] 디자인
+
+### Fetures
+* Pick a date from callendar
+* Add new task
+* Mark task as completed / uncompleted
+* Set task priority
+* Edit task
+* Delete single task
+* Delete completed tasks
+* Delete all tasks
+* 
+### Technologies used:
+* HTML
+* CSS
+* JavaScript
+* UI
+* database
+
 
 ## Required technologies
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
