@@ -24,10 +24,10 @@ everytime 연동
 ## Schedule
 
 ## to do list
-- [v] 주제 정하기
-- [v] 담당 정하기
-- [ ] 세부 기획내용 정리
-- [ ] 디자인
+[v] 주제 정하기
+[v] 담당 정하기
+[ ] 세부 기획내용 정리
+[ ] 디자인
 
 ## Required technologies
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
