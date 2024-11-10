@@ -27,7 +27,7 @@ kwu-opensource-sw-team7
 - [ ] 담당 정하기
 
 ## Required technologies
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=color1478)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=color1478/kwu-op-sw-team7)](https://github.com/anuraghazra/github-readme-stats)
 <br>
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
