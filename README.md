@@ -50,7 +50,7 @@ everytime 연동
 - hotfix : 최종 전 버그 수정 브랜치
 
 #### branch struct
- main
+* main
     * develop
         * feature
              * feature1 (추가 예정)
