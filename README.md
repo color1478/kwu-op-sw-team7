@@ -59,7 +59,8 @@ everytime 연동
             * page1
             * page2
     * hotfix
-       
+ 
+## git branch set   
 ### git branch rules
 - all
   * 개인 작업 항상 각 브랜치에서 하기
@@ -103,7 +104,7 @@ everytime 연동
 - delete branch는 하지 말 것
 
 
-### git branch User manual !!!!
+## git branch User manual !!!!
 1. git pull origin develop
 2. git branch
 3. git checkout [사용할 branch명]
@@ -118,13 +119,12 @@ everytime 연동
 12. github repo들어가보면 요청 있음.
 13. pull requested 버튼 클릭
 14. 위쪽에 수정한 branch에서 pull 하려는 branch 확인!!
-15-1. develop인 경우 우측 상단에 Reviewers를 교수님 제외 나머지 다 클릭
-15-2. main인 경우 그냥 진행 하면 됨.
-16. 채팅방에 올렸다고 알리기
-17. 2명 또는 4명이 github 들어가서 approve 누르기 (문제 있을 시 commit 남기기)
-18. pull requested 올린 사람 들어가면 merge pull request 버튼 활성화 누르기
-19. merge 버튼 누르기
-20. 완료 (insights - networks 에 시각적으로 merge 확인 가능)
+15. develop인 경우 우측 상단에 Reviewers를 교수님 제외 나머지 다 클릭 / main인 경우 그냥 진행 하면 됨.
+17. 채팅방에 올렸다고 알리기
+18. 2명 또는 4명이 github 들어가서 approve 누르기 (문제 있을 시 commit 남기기)
+19. pull requested 올린 사람 들어가면 merge pull request 버튼 활성화 누르기
+20. merge 버튼 누르기
+21. 완료 (insights - networks 에 시각적으로 merge 확인 가능)
 
 
 ## Required technologies
