@@ -59,7 +59,8 @@ everytime 연동
             * page1
             * page2
     * hotfix
-       
+ 
+## git branch set   
 ### git branch rules
 - all
   * 개인 작업 항상 각 브랜치에서 하기
@@ -82,7 +83,7 @@ everytime 연동
   * 모든 기능과 ui제작 후 테스트 과정에서 쓸 브랜치
   * 초반 개발 단계에서 사용 X
  
-### git branch use
+### git branch command
 - git clone [원격 레포지토리 URL] : 원격 저장소 내용을 로컬 저장소로 가져옴
 - git pull : 로컬 저장소가 있을 시 업데이트 내용을 로컬 저장소로 가져옴
 - git branch : 현재 branch 상태를 보여줌 / branch list 확 ( * 이 있는 곳이 현재 branch)
@@ -101,6 +102,29 @@ everytime 연동
 - create pull request 클릭 후 pull Reuest 요청
 - 승인 후 merge pull request / confire merge 클릭
 - delete branch는 하지 말 것
+
+
+## git branch User manual !!!!
+1. git pull origin develop
+2. git branch
+3. git checkout [사용할 branch명]
+4. 코드 수정 하기
+5. 다시 git bash 열기
+6. git checkout [사용할 branch명]
+7. git add .
+8. git commit -m "[commit 메세지 입력]"
+9. git push origin [사용중인 branch]
+10. git checkout [push할 branch ex) feature1/main_page -> develop 경우 develop 입력]
+11. git pull origin [수정했던 branch ex)develop에서 feature1/main_page 입력]
+12. github repo들어가보면 요청 있음.
+13. pull requested 버튼 클릭
+14. 위쪽에 수정한 branch에서 pull 하려는 branch 확인!!
+15. develop인 경우 우측 상단에 Reviewers를 교수님 제외 나머지 다 클릭 / main인 경우 그냥 진행 하면 됨.
+17. 채팅방에 올렸다고 알리기
+18. 2명 또는 4명이 github 들어가서 approve 누르기 (문제 있을 시 commit 남기기)
+19. pull requested 올린 사람 들어가면 merge pull request 버튼 활성화 누르기
+20. merge 버튼 누르기
+21. 완료 (insights - networks 에 시각적으로 merge 확인 가능)
 
 
 ## Required technologies
