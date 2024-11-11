@@ -50,10 +50,15 @@ everytime 연동
 - hotfix : 최종 전 버그 수정 브랜치
 
 #### branch struct
- main  - develop - feature - feature1 (추가 예정)
-                           - feature2 (추가 예정)
-                 - ui
-       - hotfix
+ main
+    - develop
+        - feature
+             - feature1 (추가 예정)
+             - feature2 (추가 예정)
+        - ui
+            - page1
+            - page2
+    - hotfix
        
 ### git branch rules
 - all
