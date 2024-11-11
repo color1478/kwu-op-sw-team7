@@ -51,14 +51,14 @@ everytime 연동
 
 #### branch struct
  main
-    - develop
-        - feature
-             - feature1 (추가 예정)
-             - feature2 (추가 예정)
-        - ui
-            - page1
-            - page2
-    - hotfix
+    * develop
+        * feature
+             * feature1 (추가 예정)
+             * feature2 (추가 예정)
+        * ui
+            * page1
+            * page2
+    * hotfix
        
 ### git branch rules
 - all
