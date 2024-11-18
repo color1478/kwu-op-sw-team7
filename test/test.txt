@@ -1,5 +1,0 @@
-test_1...
-branch 연결
-
-main_page add 
-sub_page 삭제
