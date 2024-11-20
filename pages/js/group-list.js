@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 뒤로가기 버튼 기능
   backButton.addEventListener("click", () => {
-    window.location.href = "/index.html"; // index.html로 이동
+    window.location.href = "/html/index.html"; // index.html로 이동
   });
 
   // 서버에서 데이터 가져오기
