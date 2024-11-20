@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group List</title>
+  <link rel="stylesheet" href="../css/group-list.css">
+
+</head>
+<body>
+  <h1>Group List</h1>
+  <div class="container">
+    <button class="back-button" id="back-button">뒤로가기</button>
+    <div class="group-list" id="group-list">
+      <p>Loading group list...</p>
+    </div>
+    <div class="group-data" id="group-data"></div>
+  </div>
+  <script>
+    // 뒤로가기 버튼 클릭 시 index.html로 이동
+    document.getElementById("back-button").addEventListener("click", () => {
+      window.location.href = "/html/index.html"; // index.html로 이동
+    });
+  </script>
+  <script src="../js/group-list.js"></script>
+</body>
+</html>

@@ -126,6 +126,53 @@ everytime 연동
 20. merge 버튼 누르기
 21. 완료 (insights - networks 에 시각적으로 merge 확인 가능)
 
+## clone 한 뒤에 실행시키는법
+1. visual studio code에서 폴더 열기
+2. 아래쪽 terminal 열기
+3. 'npm install' 입력
+4. 많은 package들 받아옴
+5. 'npm start' 입력
+6. 이런식으로 메시지가 나오고 내장된 브라우저에서 실행됨
+✔ Checking your system
+✔ Locating application
+✔ Loading configuration
+✔ Preparing native dependencies [2s]
+✔ Running generateAssets hook
+
+
+✔ Checking your system
+✔ Locating application
+✔ Loading configuration
+✔ Preparing native dependencies [2s]
+✔ Running generateAssets hook
+
+✔ Checking your system
+✔ Locating application
+✔ Loading configuration
+✔ Preparing native dependencies [2s]
+✔ Running generateAssets hook
+✔ Checking your system
+✔ Locating application
+✔ Loading configuration
+✔ Preparing native dependencies [2s]
+✔ Checking your system
+✔ Locating application
+✔ Loading configuration
+✔ Checking your system
+✔ Locating application
+✔ Checking your system
+✔ Checking your system
+✔ Checking your system
+✔ Locating application
+✔ Locating application
+✔ Loading configuration
+✔ Loading configuration
+✔ Preparing native dependencies [2s]
+✔ Running generateAssets hook
+✔ Preparing native dependencies [2s]
+✔ Running generateAssets hook
+
+
 
 ## Required technologies
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
