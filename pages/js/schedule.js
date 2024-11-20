@@ -7,12 +7,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.history.back(); // Navigate to the previous page
   });
 
-  // Parse the group name from the query string
+  // Parse the group name and code from the query string
   const params = new URLSearchParams(window.location.search);
   const groupName = params.get("group");
+  const groupCode = params.get("code");
 
-  if (!groupName) {
-    scheduleDiv.innerHTML = "<p>No group selected.</p>";
+  if (!groupName || !groupCode) {
+    scheduleDiv.innerHTML = "<p>No group or code specified.</p>";
     return;
   }
 
@@ -56,31 +57,36 @@ document.addEventListener("DOMContentLoaded", async () => {
       </tr>
     `;
 
-    schedule.forEach((daySchedule, day) => {
-      daySchedule.forEach((overlap, hour) => {
-        const row = tbody.querySelector(`tr[data-hour="${hour}"]`) || document.createElement("tr");
-        if (!row.hasChildNodes()) {
-          row.innerHTML = `<td>${hour}:00</td>`;
-          row.setAttribute("data-hour", hour);
-          tbody.appendChild(row);
-        }
+    schedule[0].forEach((_, hour) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${hour}:00</td>`;
+      row.setAttribute("data-hour", hour);
+
+      schedule.forEach((daySchedule) => {
         const cell = document.createElement("td");
+        const overlap = daySchedule[hour];
         cell.textContent = overlap > 0 ? overlap : "";
         cell.setAttribute("data-overlap", overlap);
         row.appendChild(cell);
       });
+
+      tbody.appendChild(row);
     });
 
     table.appendChild(thead);
     table.appendChild(tbody);
+    scheduleDiv.innerHTML = ""; // Clear loading message
     scheduleDiv.appendChild(table);
   };
 
   // Fetch and process data
   const data = await fetchData();
-  const groupData = data.filter((item) => item.group === groupName);
+  const groupData = data.filter(
+    (item) => item.group === groupName && item.groupCode === groupCode
+  );
+
   if (groupData.length === 0) {
-    scheduleDiv.innerHTML = "<p>No data found for this group.</p>";
+    scheduleDiv.innerHTML = "<p>No data found for this group and code.</p>";
   } else {
     renderSchedule(groupData);
   }
