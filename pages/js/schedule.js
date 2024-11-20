@@ -2,15 +2,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const scheduleDiv = document.getElementById("schedule");
   const backButton = document.getElementById("back-button");
 
-  // Back button functionality
-  backButton.addEventListener("click", () => {
-    window.history.back(); // Navigate to the previous page
-  });
-
   // Parse the group name and code from the query string
   const params = new URLSearchParams(window.location.search);
   const groupName = params.get("group");
   const groupCode = params.get("code");
+
+  // Back button functionality
+  backButton.addEventListener("click", () => {
+    window.history.back(); // Navigate to the previous page
+  });
 
   if (!groupName || !groupCode) {
     scheduleDiv.innerHTML = "<p>No group or code specified.</p>";
@@ -77,6 +77,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     table.appendChild(tbody);
     scheduleDiv.innerHTML = ""; // Clear loading message
     scheduleDiv.appendChild(table);
+
+    // Add "Find Maximum Overlap" button
+    const maxButton = document.createElement("button");
+    maxButton.textContent = "Find Maximum Overlap";
+    maxButton.className = "find-max-btn";
+    maxButton.addEventListener("click", () => {
+      window.location.href = `/html/max-overlap.html?group=${encodeURIComponent(groupName)}&code=${encodeURIComponent(groupCode)}`;
+    });
+    scheduleDiv.appendChild(maxButton); // Append the button after the table
   };
 
   // Fetch and process data

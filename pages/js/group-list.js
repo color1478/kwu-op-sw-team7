@@ -114,8 +114,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    groupListDiv.innerHTML = `<p>Group: <strong>${groupName}</strong>. Please enter the code to access details.</p>`;
-    codePromptDiv.style.display = "block"; // 코드 입력 창 표시
+    const matchedGroups = fetchedData.filter((item) => item.group.toLowerCase() === groupName.toLowerCase());
+
+    if (matchedGroups.length === 0) {
+      groupListDiv.innerHTML = `<p>No group found with the specified name.</p>`;
+      codePromptDiv.style.display = "none"; // 코드 입력 창 숨기기
+    } else {
+      groupListDiv.innerHTML = `<p>Group: <strong>${groupName}</strong>. Please enter the code to access details.</p>`;
+      codePromptDiv.style.display = "block"; // 코드 입력 창 표시
+    }
+
     groupDataDiv.innerHTML = "";
   });
 
