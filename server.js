@@ -7,9 +7,9 @@ const expressApp = express();
 // Serve static files from the 'pages' directory
 expressApp.use(express.static(path.join(__dirname, "pages")));
 
-// Route for serving index.html as the default page
+// Serve index.html as the default page
 expressApp.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "pages/html/index.html"));
 });
 
 // API to fetch data.json contents

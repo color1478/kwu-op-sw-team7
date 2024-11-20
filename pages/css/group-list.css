@@ -16,32 +16,17 @@ body {
   }
 
   .container {
-    max-width: 800px;
-    margin: 30px auto;
+    max-width: 900px;
+    margin: 20px auto;
     padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    display: block;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-
   table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
     margin-top: 20px;
   }
 
@@ -49,46 +34,60 @@ body {
     border: 1px solid #dee2e6;
     text-align: center;
     padding: 12px;
-    user-select: none; /* Prevent text selection during drag */
-    cursor: pointer;
   }
 
   th {
     background-color: #f1f1f1;
+    color: #495057;
   }
 
-  td.selected {
-    background-color: #007bff;
-    color: white;
+  td {
+    color: #212529;
   }
 
-  button {
-    padding: 12px 20px;
+  .group {
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+
+  .group:hover {
+    color: #0056b3;
+  }
+
+  .view-schedule-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
     font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     display: inline-block;
-    text-align: center;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .view-schedule-btn:hover {
+    background-color: #218838;
   }
 
   .back-button {
+    margin-bottom: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
     background-color: #007bff;
     color: white;
-    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
   }
 
   .back-button:hover {
     background-color: #0056b3;
-  }
-
-  .submit-button {
-    background-color: #28a745;
-    color: white;
-    margin-top: 20px;
-  }
-
-  .submit-button:hover {
-    background-color: #218838;
   }
