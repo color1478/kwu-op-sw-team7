@@ -131,6 +131,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   codeSubmitButton.addEventListener("click", searchGroupByCode);
 
   // Enter 키로 그룹 코드 확인
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchGroupByCode();
+    }
+  });
+
   groupCodeInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
