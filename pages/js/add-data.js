@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let day = 0; day < 7; day++) {
       const cell = document.createElement("td");
       cell.dataset.time = hour; // 시간 저장
-      cell.dataset.day = day;  // 요일 저장
+      cell.dataset.day = day; // 요일 저장
       row.appendChild(cell);
     }
 
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const group = document.getElementById("group").value;
+    const groupCode = document.getElementById("group-code").value; // 그룹 가입 코드
 
     const availability = {};
     selectedCells.forEach((key) => {
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       availability[day].push(parseInt(time, 10));
     });
 
-    const data = { name, phone, group, availability };
+    const data = { name, phone, group, groupCode, availability }; // groupCode 포함
 
     // Send data to server
     fetch("/save-data", {
@@ -94,5 +95,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 뒤로가기 버튼 클릭 시 group-list.html로 이동
 document.getElementById("back-button").addEventListener("click", () => {
-  window.location.href = "/html/group-list.html"; // group-list.html로 이동
+  window.location.href = "/html/index.html"; // index.html로 이동
 });
