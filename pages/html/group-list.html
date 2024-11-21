@@ -4,58 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group List</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      text-align: center;
-      padding: 8px;
-    }
-    .group-list {
-      margin: 20px 0;
-    }
-    .group {
-      cursor: pointer;
-      color: blue;
-      text-decoration: underline;
-    }
-    .group-data {
-      margin-top: 20px;
-    }
-    .view-schedule-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    .back-button {
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .back-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/group-list.css">
 </head>
 <body>
-  <button class="back-button" id="back-button">뒤로가기</button>
   <h1>Group List</h1>
-  <div class="group-list" id="group-list"></div>
-  <div class="group-data" id="group-data"></div>
+  <div class="container">
+    <button class="back-button" id="back-button">뒤로가기</button>
+    <div>
+      <label for="group-search">Search Group:</label>
+      <input type="text" id="group-search" placeholder="Enter group name" />
+      <button id="search-button">Search</button>
+    </div>
+    <div class="group-list" id="group-list">
+      <p>Please enter a group name to search.</p>
+    </div>
+    <div class="code-prompt" id="code-prompt" style="display: none;">
+      <label for="group-code">Enter Group Code:</label>
+      <input type="text" id="group-code" placeholder="Enter group code" />
+      <button id="code-submit-button">Submit Code</button>
+    </div>
+    <div class="group-data" id="group-data"></div>
+  </div>
+  <script>
+    // 뒤로가기 버튼 클릭 시 index.html로 이동
+    document.getElementById("back-button").addEventListener("click", () => {
+      window.location.href = "/html/index.html"; // index.html로 이동
+    });
+  </script>
   <script src="../js/group-list.js"></script>
 </body>
 </html>
