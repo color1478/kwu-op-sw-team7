@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Data</title>
+  <link rel="stylesheet" href="../css/add-data.css">
+</head>
+<body>
+  <h1>Add Data</h1>
+  <div class="container">
+    <button class="back-button" id="back-button">뒤로가기</button>
+    <form id="availability-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="group">Group Name:</label>
+      <input type="text" id="group" name="group" placeholder="Enter group name" required>
+
+      <label for="group-code">Group Join Code:</label>
+      <input type="text" id="group-code" name="group-code" placeholder="Enter a join code for the group" required>
+
+      <table>
+        <tr>
+          <th>Time/Day</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+        <tbody id="availability-table"></tbody>
+      </table>
+
+      <button type="submit" class="submit-button">Save</button>
+    </form>
+  </div>
+  <script>
+    // 뒤로가기 버튼 클릭 시 index.html로 이동
+    document.getElementById("back-button").addEventListener("click", () => {
+      window.location.href = "/html/index.html"; // index.html로 이동
+    });
+  </script>
+  <script src="../js/add-data.js"></script>
+</body>
+</html>

@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const groupListDiv = document.getElementById("group-list");
   const groupDataDiv = document.getElementById("group-data");
-  const backButton = document.getElementById("back-button");
+  const searchInput = document.getElementById("group-search");
+  const searchButton = document.getElementById("search-button");
+  const codePromptDiv = document.getElementById("code-prompt");
+  const groupCodeInput = document.getElementById("group-code");
+  const codeSubmitButton = document.getElementById("code-submit-button");
 
-  let selectedGroup = null; // 선택된 그룹 저장
-
-  // 뒤로가기 버튼 기능
-  backButton.addEventListener("click", () => {
-    window.location.href = "/index.html"; // index.html로 이동
-  });
+  let fetchedData = []; // 전체 데이터를 저장
 
   // 서버에서 데이터 가져오기
   const fetchData = async () => {
@@ -24,30 +23,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   };
 
-  const renderGroupList = (groups) => {
-    groupListDiv.innerHTML = "";
-    const uniqueGroups = [...new Set(groups.map((item) => item.group))];
-    uniqueGroups.forEach((group) => {
-      const groupElement = document.createElement("div");
-      groupElement.textContent = group;
-      groupElement.classList.add("group");
-      groupElement.style.cursor = "pointer";
-      groupElement.style.color = "blue";
-      groupElement.style.textDecoration = "underline";
-      groupElement.addEventListener("click", () => {
-        selectedGroup = group;
-        renderGroupDetails(group, groups);
-      });
-      groupListDiv.appendChild(groupElement);
-    });
-  };
-
-  const renderGroupDetails = (group, data) => {
+  const renderGroupDetails = (groupData) => {
     groupDataDiv.innerHTML = ""; // 기존 데이터 제거
-    const groupData = data.filter((item) => item.group === group);
 
-    if (groupData.length === 0) {
-      groupDataDiv.innerHTML = `<p>No data found for group: ${group}</p>`;
+    if (!groupData) {
+      groupDataDiv.innerHTML = `<p>No data found for the specified group and code.</p>`;
       return;
     }
 
@@ -84,7 +64,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     button.textContent = "View Group Schedule";
     button.className = "view-schedule-btn";
     button.addEventListener("click", () => {
-      window.location.href = `/html/schedule.html?group=${encodeURIComponent(group)}`;
+      // URL에 group과 code를 포함하여 이동
+      window.location.href = `/html/schedule.html?group=${encodeURIComponent(groupData[0].group)}&code=${encodeURIComponent(groupData[0].groupCode)}`;
     });
     groupDataDiv.appendChild(button);
   };
@@ -96,11 +77,71 @@ document.addEventListener("DOMContentLoaded", async () => {
       .join("<br>");
   };
 
-  // 데이터 가져와서 렌더링
-  const data = await fetchData();
-  if (data.length === 0) {
-    groupListDiv.innerHTML = "<p>No groups found.</p>";
-  } else {
-    renderGroupList(data);
-  }
+  const searchGroupByCode = () => {
+    const groupName = searchInput.value.trim().toLowerCase();
+    const groupCode = groupCodeInput.value.trim();
+
+    if (!groupName || !groupCode) {
+      alert("Please enter both a group name and a group code.");
+      return;
+    }
+
+    const groupData = fetchedData.filter(
+      (item) => item.group.toLowerCase() === groupName && item.groupCode === groupCode
+    );
+
+    if (groupData.length > 0) {
+      renderGroupDetails(groupData);
+      groupListDiv.innerHTML = `<p>Group: <strong>${groupData[0].group}</strong> found.</p>`;
+      codePromptDiv.style.display = "none"; // 코드 입력 창 숨기기
+    } else {
+      groupListDiv.innerHTML = `<p>No group found with the specified name and code.</p>`;
+      groupDataDiv.innerHTML = "";
+    }
+  };
+
+  // 데이터 가져와서 초기화
+  fetchedData = await fetchData();
+
+  // 검색 버튼 클릭 이벤트
+  searchButton.addEventListener("click", () => {
+    const groupName = searchInput.value.trim();
+
+    if (!groupName) {
+      groupListDiv.innerHTML = `<p>Please enter a group name to search.</p>`;
+      groupDataDiv.innerHTML = "";
+      codePromptDiv.style.display = "none";
+      return;
+    }
+
+    const matchedGroups = fetchedData.filter((item) => item.group.toLowerCase() === groupName.toLowerCase());
+
+    if (matchedGroups.length === 0) {
+      groupListDiv.innerHTML = `<p>No group found with the specified name.</p>`;
+      codePromptDiv.style.display = "none"; // 코드 입력 창 숨기기
+    } else {
+      groupListDiv.innerHTML = `<p>Group: <strong>${groupName}</strong>. Please enter the code to access details.</p>`;
+      codePromptDiv.style.display = "block"; // 코드 입력 창 표시
+    }
+
+    groupDataDiv.innerHTML = "";
+  });
+
+  // 그룹 코드 확인 버튼 클릭 이벤트
+  codeSubmitButton.addEventListener("click", searchGroupByCode);
+
+  // Enter 키로 그룹 코드 확인
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchGroupByCode();
+    }
+  });
+
+  groupCodeInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchGroupByCode();
+    }
+  });
 });
