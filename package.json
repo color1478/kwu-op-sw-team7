@@ -16,6 +16,8 @@
     "electron-squirrel-startup": "^1.0.1",
     "express": "^4.21.1",
     "kwu-op-sw-team7": "^0.0.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
     "nodemon": "^3.1.7",
     "selenium-webdriver": "^4.26.0"
   },
