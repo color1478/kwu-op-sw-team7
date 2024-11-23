@@ -97,3 +97,44 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("back-button").addEventListener("click", () => {
   window.location.href = "/html/index.html"; // index.html로 이동
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const phoneInput = document.getElementById("phone");
+  
+    // 핸드폰 입력 실시간 포맷
+    phoneInput.addEventListener("input", () => {
+      let value = phoneInput.value.replace(/\D/g, ""); // 숫자만 남김
+      if (value.length > 3 && value.length <= 7) {
+        value = value.replace(/(\d{3})(\d+)/, "$1-$2");
+      } else if (value.length > 7) {
+        value = value.replace(/(\d{3})(\d{4})(\d+)/, "$1-$2-$3");
+      }
+      phoneInput.value = value;
+    });
+  
+    phoneInput.addEventListener("blur", () => {
+      const pattern = /^010-\d{4}-\d{4}$/;
+      if (!pattern.test(phoneInput.value)) {
+        alert("Please enter a valid phone number in the format 010-0000-0000");
+        phoneInput.focus();
+      }
+    });
+  });
+  
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const groupName = urlParams.get("group");
+    const groupCode = urlParams.get("groupCode");
+  
+    if (groupName) {
+      document.getElementById("group").value = groupName;
+      document.getElementById("group").readOnly = true;
+    }
+  
+    if (groupCode) {
+      document.getElementById("group-code").value = groupCode;
+      document.getElementById("group-code").readOnly = true;
+    }
+  });
+  

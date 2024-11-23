@@ -7,11 +7,12 @@ let mainWindow;
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 800,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"), // Optional preload script
     },
   });
+  mainWindow.setMenuBarVisibility(false);
 
   // Load the Express server URL
   mainWindow.loadURL("http://localhost:8080");

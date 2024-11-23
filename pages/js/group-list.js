@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       groupListDiv.innerHTML = `<p>Group: <strong>${groupData[0].group}</strong> found.</p>`;
       codePromptDiv.style.display = "none"; // 코드 입력 창 숨기기
     } else {
-      groupListDiv.innerHTML = `<p>No group found with the specified name and code.</p>`;
+      groupListDiv.innerHTML = `<p>No group found.</p>`;
       groupDataDiv.innerHTML = "";
     }
   };
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       groupListDiv.innerHTML = `<p>No group found with the specified name.</p>`;
       codePromptDiv.style.display = "none"; // 코드 입력 창 숨기기
     } else {
-      groupListDiv.innerHTML = `<p>Group: <strong>${groupName}</strong>. Please enter the code to access details.</p>`;
+      groupListDiv.innerHTML = `<p>Group: <strong>${groupName}</strong>. Please enter the Group code.</p>`;
       codePromptDiv.style.display = "block"; // 코드 입력 창 표시
     }
 
@@ -138,10 +138,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  groupCodeInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      searchGroupByCode();
-    }
-  });
 });
