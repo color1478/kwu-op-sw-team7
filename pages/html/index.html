@@ -1,19 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="../css/index.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        body {
+            background-color: #eaedea;
+        }
+
+        h1 {
+            background-color: #a6c498;
+            color: #ffffff;
+            padding: 15px 80px;
+            font-size: 45px;
+            text-align: center;
+            margin-bottom: 0 0 80px 0;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            background-color: #a6c498;
+            padding: 50px 80px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 19px;
+        }
+
+        .button-container button {
+            background-color: #5c925d;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 16px 26px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container button:hover {
+            background-color: #446e46;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Welcome</h1>
-  <div class="button-container">
-    <button onclick="location.href='/html/group-list.html'">Group List</button>
-    <button onclick="location.href='/html/add-data.html'">Add Data</button>
-    <button onclick="location.href='/html/find.html'">find</button>
-    <button onclick="location.href='/html/view-list.html'">view group</button>
-  </div>
+    <h1>Welcome~\(^^)/</h1>
+    <div class="button-container">
+        <button onclick="location.href='/html/group-list.html'">모임별 시간표 확인</button>
+        <button onclick="location.href='/html/add-data.html'">시간표 입력</button>
+        <button onclick="location.href='/html/find.html'">인원별 참여 모임 검색</button>
+        <button onclick="location.href='/html/view-list.html'">나의 모임 확인</button>
+    </div>
 </body>
+
 </html>
