@@ -10,7 +10,7 @@ body {
     text-align: center;
     padding: 20px;
     margin: 0;
-    background-color: #007bff;
+    background-color: #5c925d;
     color: white;
     font-size: 2rem;
   }
@@ -47,7 +47,7 @@ body {
 
   .group {
     cursor: pointer;
-    color: #007bff;
+    color: #5c925d;
     font-weight: bold;
     transition: color 0.2s ease;
   }
@@ -79,7 +79,7 @@ body {
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #5c925d;
     color: white;
     border: none;
     border-radius: 5px;
@@ -91,3 +91,23 @@ body {
   .back-button:hover {
     background-color: #0056b3;
   }
+  
+  .add-button {
+    margin-bottom: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #5c925d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .add-button:hover {
+    background-color: #5c925d;
+  }
+
+  
