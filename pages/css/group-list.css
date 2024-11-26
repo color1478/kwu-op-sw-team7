@@ -11,7 +11,7 @@ h1 {
     text-align: center;
     padding: 20px;
     margin: 0;
-    background-color: #007bff;
+    background-color: #5c925d;
     color: white;
     font-size: 2.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -45,9 +45,9 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-    border-color: #007bff;
+    border-color: #6f9c70;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 button {
@@ -65,12 +65,12 @@ button:hover {
 }
 
 #search-button {
-    background-color: #007bff;
+    background-color: #6f9c70;
     color: white;
 }
 
 #search-button:hover {
-    background-color: #0056b3;
+    background-color: #6f9c70;
 }
 
 #code-submit-button {
@@ -86,14 +86,14 @@ button:hover {
     display: block;
     width: fit-content;
     margin: 0 auto 20px auto;
-    background-color: #007bff;
+    background-color: #6f9c70;
     color: white;
     text-align: center;
     border: none;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
+    background-color: #6f9c70;
 }
 
 table {
@@ -105,7 +105,8 @@ table {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     border: 1px solid #dee2e6;
     text-align: center;
     padding: 16px;
@@ -124,7 +125,7 @@ td {
 
 .group {
     cursor: pointer;
-    color: #007bff;
+    color: #5c925d;
     font-weight: bold;
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
@@ -149,5 +150,4 @@ td {
 
 .view-schedule-btn:hover {
     background-color: #218838;
-    transform: translateY(-2px);
 }
