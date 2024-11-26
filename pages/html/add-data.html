@@ -15,7 +15,15 @@
       <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
       <label for="phone">Phone Number:</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+      <input 
+        type="text" 
+        id="phone" 
+        name="phone" 
+        placeholder="010-0000-0000" 
+        required 
+        pattern="010-\d{4}-\d{4}" 
+        title="Please enter a valid phone number in the format 010-0000-0000">
+      
 
       <label for="group">Group Name:</label>
       <input type="text" id="group" name="group" placeholder="Enter group name" required>

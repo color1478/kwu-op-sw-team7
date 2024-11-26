@@ -1,113 +1,152 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
     color: #343a40;
-  }
+    line-height: 1.6;
+}
 
-  h1 {
+h1 {
     text-align: center;
     padding: 20px;
     margin: 0;
     background-color: #5c925d;
     color: white;
-    font-size: 2rem;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
+    font-size: 2.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  table {
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#search-button {
+    background-color: #007bff;
+    color: white;
+}
+
+#search-button:hover {
+    background-color: #0056b3;
+}
+
+#code-submit-button {
+    background-color: #28a745;
+    color: white;
+}
+
+#code-submit-button:hover {
+    background-color: #218838;
+}
+
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border: none;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
-  }
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  th, td {
+th, td {
     border: 1px solid #dee2e6;
     text-align: center;
-    padding: 12px;
-  }
+    padding: 16px;
+    font-size: 1rem;
+}
 
-  th {
+th {
     background-color: #f1f1f1;
     color: #495057;
-  }
+    font-weight: bold;
+}
 
-  td {
+td {
     color: #212529;
-  }
+}
 
-  .group {
+.group {
     cursor: pointer;
     color: #5c925d;
     font-weight: bold;
-    transition: color 0.2s ease;
-  }
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
 
-  .group:hover {
+.group:hover {
     color: #0056b3;
-  }
+    text-decoration: underline;
+}
 
-  .view-schedule-btn {
+.view-schedule-btn {
     margin-top: 20px;
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     display: inline-block;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-  .view-schedule-btn:hover {
+.view-schedule-btn:hover {
     background-color: #218838;
-  }
 
-  .back-button {
-    margin-bottom: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #5c925d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-  }
-
-  .back-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .add-button {
-    margin-bottom: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #5c925d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-  }
-  
-  .add-button:hover {
-    background-color: #5c925d;
-  }
-
-  
