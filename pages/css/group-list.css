@@ -11,7 +11,7 @@ h1 {
     text-align: center;
     padding: 20px;
     margin: 0;
-    background-color: #007bff;
+    background-color: #5c925d;
     color: white;
     font-size: 2.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -124,7 +124,7 @@ td {
 
 .group {
     cursor: pointer;
-    color: #007bff;
+    color: #5c925d;
     font-weight: bold;
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
@@ -149,5 +149,4 @@ td {
 
 .view-schedule-btn:hover {
     background-color: #218838;
-    transform: translateY(-2px);
-}
+
