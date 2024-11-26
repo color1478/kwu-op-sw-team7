@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const groupCodeInput = document.getElementById("group-code");
     const codeSubmitButton = document.getElementById("code-submit-button");
     const commentSection = document.getElementById("comment_section");
-    commentSection.style.display = "none";
+    const commentForm = document.getElementById('comment-form');
+    // 현재 페이지 ID 가져오기 (URL의 쿼리 또는 경로 기반)
+    const pageId = new URLSearchParams(window.location.search).get('pageId') || 'default';
+    commentSection.style.display = "block";
   
     let fetchedData = []; // 전체 데이터를 저장
   
@@ -136,4 +139,25 @@ document.addEventListener("DOMContentLoaded", async () => {
       searchGroupByCode();
     }
   });
+
+   // 댓글 추가
+   commentForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const comment = document.getElementById('comment').value;
+
+    const res = await fetch(`/api/comments/${pageId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, comment })
+    });
+
+    if (res.ok) {
+        //fetchComments(); // 새로고침 없이 댓글 목록 갱신
+        alert('업로드 성공!');
+        commentForm.reset();
+    } else {
+        alert('Error adding comment.');
+    }
+});
 });
