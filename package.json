@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "db": "^6.0.3",
     "electron-squirrel-startup": "^1.0.1",
     "express": "^4.21.1",
     "kwu-op-sw-team7": "^0.0.1",

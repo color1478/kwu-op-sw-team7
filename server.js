@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const mysql = require("mysql2");
 const db = require("./lib/db");
+const dataHandler = require("./lib/dataHandler"); // dataHandler.js 파일 가져오기
 
 const expressApp = express();
 
@@ -85,8 +86,13 @@ expressApp.post("/save-mysql-data", express.json(), (req, res) => {
     });
 });
 
-// This API endpoint ('/save-mysql-data') is added to insert data into the MySQL database.
-// It reads 'name' and 'age' from the request body, constructs an SQL INSERT query,
-// and inserts the values into the specified table. It responds with a success message if the operation completes without errors.
+// 데이터 삽입 API 엔드포인트 정의
+// '/insert-json-data'로 들어오는 요청을 처리하기 위해 dataHandler의 insertJsonData 함수를 사용
+expressApp.get("/insert-json-data", dataHandler.insertJsonData);
+
+// 서버 실행 - 3000번 포트에서 서버를 실행
+expressApp.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
 
 module.exports = expressApp;
