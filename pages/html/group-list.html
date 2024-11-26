@@ -24,6 +24,7 @@
     </div>
     <div class="group-data" id="group-data"></div>
   </div>
+  
   <script>
     // 뒤로가기 버튼 클릭 시 index.html로 이동
     document.getElementById("back-button").addEventListener("click", () => {
@@ -31,5 +32,16 @@
     });
   </script>
   <script src="../js/group-list.js"></script>
+
+  <div id="comment_section">
+    <div id="comment-section"></div>
+    <form id="comment-form">
+        <input type="text" id="username" placeholder="Your Name" required>
+        <textarea id="comment" placeholder="Your Comment" required></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+    </div>
+</div>
+
 </body>
 </html>

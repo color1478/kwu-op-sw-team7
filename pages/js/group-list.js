@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const codePromptDiv = document.getElementById("code-prompt");
     const groupCodeInput = document.getElementById("group-code");
     const codeSubmitButton = document.getElementById("code-submit-button");
+    const commentSection = document.getElementById("comment_section");
+    commentSection.style.display = "none";
   
     let fetchedData = []; // 전체 데이터를 저장
   
