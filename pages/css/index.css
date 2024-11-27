@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #eaedea, #a6d1a6);
+    background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    background-color: #a6c498;
+    background-color: #6f9c70;
     color: #ffffff;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -23,7 +23,7 @@ h1 {
 }
 
 .button-container {
-    background-color: #a6c498;
+    background-color: #ffffff;
     padding: 20px 30px;
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
