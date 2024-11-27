@@ -5,17 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Schedule</title>
   <link rel="stylesheet" href="../css/schedule.css">
-
 </head>
 <body>
   <h1>Group Schedule</h1>
   <div class="container">
-    <button class="back-button" id="back-button">뒤로가기</button>
+    <div class="button-row">
+      <button class="back-button" id="back-button">뒤로가기</button>
+
+      <button class="reverse-btn" id="reverse-btn">Reverse Schedule</button>
+      <button class="filter-button" id="filter-button">Filter</button>
+    </div>
     <div id="schedule">
       <p class="no-data">Loading schedule...</p>
+    </div>
+    <div id="filter-panel" class="hidden">
+      <h2>Filter Members</h2>
+      <div id="member-list">
+        <p>Loading members...</p>
+      </div>
+      <button id="apply-filter" class="apply-filter-btn">Apply Filter</button>
     </div>
   </div>
 
   <script src="../js/schedule.js"></script>
+
+ 
+  <style>
+    #disqus_thread {
+        display: block; /* Flexbox 영향을 제거 */
+        width: 100%;    /* 부모 요소에 맞게 확장 */
+    }
+    </style>
+    
+      <div id="disqus_thread" style="flex: 1 0 auto;"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+        // var disqus_config = function () {
+        // this.page.url = "https://localhost:8080";  // Replace PAGE_URL with your page's canonical URL variable
+        // this.page.identifier = "/1"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        // };
+    
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://match-schedule.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+
+
+  
+
+  
+  
+    
 </body>
 </html>

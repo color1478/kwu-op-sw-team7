@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Data</title>
-  <link rel="stylesheet" href="../css/main.css">
-
+  <link rel="stylesheet" href="../css/add-data.css">
 </head>
 <body>
   <h1>Add Data</h1>
@@ -16,10 +15,21 @@
       <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
       <label for="phone">Phone Number:</label>
-      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+      <input 
+        type="text" 
+        id="phone" 
+        name="phone" 
+        placeholder="010-0000-0000" 
+        required 
+        pattern="010-\d{4}-\d{4}" 
+        title="Please enter a valid phone number in the format 010-0000-0000">
+      
 
       <label for="group">Group Name:</label>
       <input type="text" id="group" name="group" placeholder="Enter group name" required>
+
+      <label for="group-code">Group Join Code:</label>
+      <input type="text" id="group-code" name="group-code" placeholder="Enter a join code for the group" required>
 
       <table>
         <tr>
@@ -44,6 +54,6 @@
       window.location.href = "/html/index.html"; // index.html로 이동
     });
   </script>
-  <script src="../js/script.js"></script>
+  <script src="../js/add-data.js"></script>
 </body>
 </html>
