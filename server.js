@@ -88,10 +88,12 @@ expressApp.post("/save-mysql-data", express.json(), (req, res) => {
 
 // 데이터 삽입 API 엔드포인트 정의
 // '/insert-json-data'로 들어오는 요청을 처리하기 위해 dataHandler의 insertJsonData 함수를 사용
-expressApp.get("/insert-json-data", (req, res) => {
-    console.log("GET /insert-json-data endpoint hit!"); // 요청 감지 로그
-    dataHandler.insertJsonData(req, res); // dataHandler.js의 함수 호출
-  });
+expressApp.get("/insert-json-data", dataHandler.insertJsonData);
+
+dataHandler.insertJsonData(null, {
+    send:(message) => console.log("Automatic execution result: ", message),
+});
+
 // 서버 실행 - 3000번 포트에서 서버를 실행
 expressApp.listen(3000, () => {
     console.log("Server is running on port 3000");
