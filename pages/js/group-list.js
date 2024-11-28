@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const codePromptDiv = document.getElementById("code-prompt");
     const groupCodeInput = document.getElementById("group-code");
     const codeSubmitButton = document.getElementById("code-submit-button");
+    const commentPart = document.getElementById("comment_part");
+    const commentSection = document.getElementById("comment_section");
+
+    const commentForm = document.getElementById('comment-form');
+    // 현재 페이지 ID 가져오기 (URL의 쿼리 또는 경로 기반)
+    const pageId = new URLSearchParams(window.location.search).get('pageId') || 'default';
+    commentPart.style.display = "none";
   
     let fetchedData = []; // 전체 데이터를 저장
   
@@ -98,6 +105,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         groupListDiv.innerHTML = `<p>No group found with the specified name and code.</p>`;
         groupDataDiv.innerHTML = "";
       }
+
+      //검색 이후에 commet 보이게하기
+    commentPart.style.display = "block";
     };
   
     // 데이터 가져와서 초기화
@@ -122,6 +132,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       codePromptDiv.style.display = "block"; // 코드 입력 창 표시
     }
     groupDataDiv.innerHTML = "";
+
+    
   });
 
   // 그룹 코드 확인 버튼 클릭 이벤트
@@ -134,4 +146,43 @@ document.addEventListener("DOMContentLoaded", async () => {
       searchGroupByCode();
     }
   });
+
+//----------------------------------------------
+//----------comment 기능------------------------
+
+  // 댓글 불러오기
+  const fetchComments = async () => {
+    const res = await fetch(`/api/comments/${pageId}`);
+    const comments = await res.json();
+    commentSection.innerHTML = comments.map(c => `
+        <div class="comment">
+            <div class="username">${c.username}</div>
+            <div class="time">${new Date(c.time).toLocaleString()}</div>
+            <div class="text">${c.comment}</div>
+        </div>
+    `).join('');
+};
+
+   // 댓글 추가
+   commentForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const comment = document.getElementById('comment').value;
+
+    const res = await fetch(`/api/comments/${pageId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, comment })
+    });
+
+    if (res.ok) {
+        fetchComments(); // 새로고침 없이 댓글 목록 갱신
+        //alert('업로드 성공!');
+        commentForm.reset();
+    } else {
+        alert('Error adding comment.');
+    }
+    });
+     // 초기 댓글 로드
+     fetchComments();
 });
