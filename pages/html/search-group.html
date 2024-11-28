@@ -13,21 +13,18 @@
     <div class="container">
         <div class="button-container">
             <button class="back-button" id="back-button">뒤로가기</button>
-            <button class="add-button" id="add-button">모임 추가</button>
         </div>
-        <div>
-            <label for="group-search">Search Group:</label>
-            <input type="text" id="group-search" placeholder="Enter group name" />
-            <button id="search-button">Search</button>
-        </div>
-        <div class="group-list" id="group-list">
-        </div>
-        <div class="code-prompt" id="code-prompt" style="display: none;">
-            <label for="group-code">Enter Group Code:</label>
-            <input type="text" id="group-code" placeholder="Enter group code" />
-            <button id="code-submit-button">Submit Code</button>
-        </div>
-        <div class="group-data" id="group-data"></div>
+        <form id="add-group-form">
+            <label for="group-name">모임 이름:</label>
+            <input type="text" id="group-name" placeholder="Enter group name" required>
+
+            <label for="group-code">모임 코드:</label>
+            <input type="text" id="group-code" placeholder="Enter group code" required>
+
+            <button type="submit" class="add-button">모임 추가</button>
+        </form>
+
+        <div id="group-list"></div>
     </div>
 
     <script>
