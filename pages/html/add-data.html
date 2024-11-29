@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Data</title>
-  <link rel="stylesheet" href="../css/add-data.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+    <link rel="stylesheet" href="../css/add-data.css">
 </head>
+
 <body>
-  <h1>Add Data</h1>
-  <div class="container">
-    <button class="back-button" id="back-button">뒤로가기</button>
-    <form id="availability-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <h1>Add Data</h1>
+    <div class="container">
+        <button class="back-button" id="back-button">뒤로가기</button>
+        <form id="availability-form">
+            <label for="name">이름 :</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-      <label for="phone">Phone Number:</label>
-      <input 
-        type="text" 
-        id="phone" 
-        name="phone" 
-        placeholder="010-0000-0000" 
-        required 
-        pattern="010-\d{4}-\d{4}" 
-        title="Please enter a valid phone number in the format 010-0000-0000">
-      
+            <label for="phone">전화번호 :</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone-number" required
+                pattern="010-\d{4}-\d{4}" title="Please enter a valid phone number in the format 010-0000-0000">
 
-      <label for="group">Group Name:</label>
-      <input type="text" id="group" name="group" placeholder="Enter group name" required>
 
-      <label for="group-code">Group Join Code:</label>
-      <input type="text" id="group-code" name="group-code" placeholder="Enter a join code for the group" required>
+            <label for="group">그룹명 :</label>
+            <input type="text" id="group" name="group" placeholder="Enter group name" required>
 
-      <table>
-        <tr>
-          <th>Time/Day</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-        <tbody id="availability-table"></tbody>
-      </table>
+            <label for="group-code">그룹 코드 :</label>
+            <input type="text" id="group-code" name="group-code" placeholder="Enter a join code for the group" required>
 
-      <button type="submit" class="submit-button">Save</button>
-    </form>
-  </div>
-  <script>
-    // 뒤로가기 버튼 클릭 시 index.html로 이동
-    document.getElementById("back-button").addEventListener("click", () => {
-      window.location.href = "/html/index.html"; // index.html로 이동
-    });
-  </script>
-  <script src="../js/add-data.js"></script>
+            <table>
+                <tr>
+                    <th>시간 \ 요일</th>
+                    <th>월요일</th>
+                    <th>화요일</th>
+                    <th>수요일</th>
+                    <th>목요일</th>
+                    <th>금요일</th>
+                    <th>토요일</th>
+                    <th>일요일</th>
+                </tr>
+                <tbody id="availability-table"></tbody>
+            </table>
+
+            <button type="submit" class="submit-button">Save</button>
+        </form>
+    </div>
+    <script>
+        // 뒤로가기 버튼 클릭 시 index.html로 이동
+        document.getElementById("back-button").addEventListener("click", () => {
+            window.location.href = "/html/index.html"; // index.html로 이동
+        });
+    </script>
+    <script src="../js/add-data.js"></script>
 </body>
+
 </html>
