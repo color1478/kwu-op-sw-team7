@@ -15,11 +15,11 @@ everytime 연동
 ## Team / members
 | name | student | roles |
 |---|----------|------------|
-| 이제호 | 2023202076 | design / backend |
+| 이제호 | 2023202076 | pm / backend |
 | 나민엽 | 2023202015 | planning / design / backend |
-| 박민서 | 2023202064 | frontend |
-| 정민지 | 2023202053 | frontend |
-| 최은준 | 2023202043 | planning / design |
+| 박민서 | 2023202064 | frontend / backend |
+| 정민지 | 2023202053 | planning/frontend |
+| 최은준 | 2023202043 | planning / design / frontend |
 
 ## Schedule
 
