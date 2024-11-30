@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const groupNames = matchedGroups.map((item) => item.group);
             const uniqueGroups = [...new Set(groupNames)];
             resultDiv.innerHTML = `
-        <p>The person is in the following groups:</p>
-        <ul>
+          <p>The person is in the following groups:</p>
+          <ul>
             ${uniqueGroups.map((group) => `<li>${group}</li>`).join("")}
-        </ul>
+          </ul>
         `;
         } else {
             resultDiv.innerHTML = `<p class="no-result">No groups found for the provided name and phone number.</p>`;
