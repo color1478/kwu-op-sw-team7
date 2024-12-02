@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Group</title>
-  <link rel="stylesheet" href="../css/find.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Group</title>
+    <link rel="stylesheet" href="../css/find.css">
 </head>
+
 <body>
-  <div class="container">
-    <button class="back-button" id="back-button">뒤로가기</button>
-    <h1>Find Group</h1>
-    <label for="search-name">Name:</label>
-    <input type="text" id="search-name" placeholder="Enter person's name" required>
+    <div class="container">
+        <button class="back-button" id="back-button">뒤로가기</button>
+        <h1>모임 찾기</h1>
+        <label for="search-name">이름 :</label>
+        <input type="text" id="search-name" placeholder="Enter person's name" required>
 
-    <label for="search-phone">Phone Number:</label>
-    <input type="text" id="search-phone" placeholder="Enter phone number" required>
+        <label for="search-phone">전화번호 :</label>
+        <input type="text" id="search-phone" placeholder="Enter phone number" required>
 
-    <button id="search-button">Search</button>
+        <button id="search-button">검색</button>
 
-    <div id="result" class="result"></div>
-  </div>
-  <script src="../js/find.js"></script>
-  <script>
-    document.getElementById("back-button").addEventListener("click", () => {
-      window.location.href = "/html/index.html"; // index.html로 이동
-    });
-  </script>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="../js/find.js"></script>
+    <script>
+        document.getElementById("back-button").addEventListener("click", () => {
+            window.location.href = "/html/index.html"; // index.html로 이동
+        });
+    </script>
 </body>
+
 </html>
