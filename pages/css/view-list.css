@@ -40,6 +40,7 @@ table {
 thead {
     background-color: #6f9c70;
     color: white;
+
 }
 
 th,
@@ -75,4 +76,54 @@ tbody tr:hover {
 .action-button:hover {
     background-color: #5c885e;
     transform: scale(1.05);
+}
+
+/* 검색창 스타일 */
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container label {
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6f9c70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #5c885e;
+    transform: scale(1.05);
+}
+
+/* 테이블 비어있을 때 메시지 */
+.empty-message {
+    text-align: center;
+    color: #868e96;
+    font-size: 18px;
+    margin-top: 20px;
+    font-style: italic;
 }
