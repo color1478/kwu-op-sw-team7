@@ -60,3 +60,28 @@ h1 {
     justify-content: center;
     gap: 15px;
 }
+/* 도움말 버튼 스타일 */
+.help-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #28a745; /* 녹색 배경 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.help-button:hover {
+    background-color: #218838; /* 더 짙은 녹색 */
+    transform: translateY(-3px); /* 호버 시 살짝 올라감 */
+}
+
+.help-button:active {
+    background-color: #1e7e34; /* 클릭 시 어두운 녹색 */
+    transform: translateY(1px); /* 클릭 시 눌리는 효과 */
+}
