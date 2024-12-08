@@ -1,0 +1,86 @@
+/* 공통 스타일 */
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 사용자 이름 입력 칸 */
+#username {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* 댓글 입력 칸 */
+#comment {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+    height: 150px; /* 댓글 칸 높이 조정 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    resize: none; /* 사용자가 크기를 조정하지 못하도록 */
+}
+
+/* 댓글 추가 버튼 */
+button[type="submit"] {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #6f9c70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #5c865d; /* 호버 시 더 진한 녹색 */
+}
+
+/* 댓글 블록 공통 스타일 */
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* 사용자 이름 스타일 */
+.comment .username {
+    color: #6f9c70;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* 댓글 텍스트 스타일 */
+.comment .text {
+    flex: 1;
+    margin: 0 10px;
+    color: #333;
+}
+
+/* 날짜와 시간 스타일 */
+.comment .time {
+    font-size: 0.9em;
+    color: #777;
+    white-space: nowrap;
+}
