@@ -77,11 +77,11 @@ h1 {
 }
 
 .help-button:hover {
-    background-color: #218838; /* 더 짙은 녹색 */
+    background-color: #2e8d6f; /* 더 짙은 녹색 */
     transform: translateY(-3px); /* 호버 시 살짝 올라감 */
 }
 
 .help-button:active {
-    background-color: #1e7e34; /* 클릭 시 어두운 녹색 */
+    background-color: #165940; /* 클릭 시 어두운 녹색 */
     transform: translateY(1px); /* 클릭 시 눌리는 효과 */
 }

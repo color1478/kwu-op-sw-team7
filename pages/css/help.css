@@ -1,0 +1,58 @@
+/* help.css */
+.modal {
+    display: none;  /* 초기 상태는 숨기기 */
+    position: fixed; /* 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    z-index: 1000; /* 모달이 다른 콘텐츠 위에 표시되도록 */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    /* 화면 중앙에 정확히 위치하기 위한 설정 */
+    margin: auto;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.help-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.help-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.circle-icon {
+    margin-right: 10px; /* 아이콘과 텍스트 간의 간격 */
+    font-size: 20px; /* 아이콘 크기 */
+    color: #b90e2b; /* 체크 표시 색상 */
+}
+
+.close-btn {
+    background-color: #3d6542;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background-color: #325a48;
+}
