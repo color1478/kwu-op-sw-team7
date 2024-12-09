@@ -4,6 +4,14 @@
 To prevent merge conflicts, we are working through individual branches for each feature and design. Through design iterations and ongoing discussions with team members, the functionality has evolved. Although the current timeline is behind the initial schedule, these adjustments aim to achieve a higher-quality program.
 We are actively utilizing Notion and Git Issues to communicate and resolve questions or problems among team members, ensuring efficient collaboration and project progression.
 
+The Match Schedule project is progressing steadily, with significant milestones achieved. The primary functionalities of the program, including creating new groups, finding existing groups, managing schedules, and visualizing availability, have been successfully implemented.
+
+We have designed a user-friendly interface that allows users to input their availability and group details efficiently. The availability data is processed to identify overlaps among group members, and a visual schedule is generated using a color-coded grid for easy interpretation. Additionally, security measures, such as group codes, have been integrated to ensure the privacy of group information.
+
+Key features like filtering schedules, reversing availability for conflict resolution, and generating the top overlap times have been completed and tested. The Disqus-based feedback system has also been added to gather user insights for future improvements.
+
+Currently, we are finalizing minor design adjustments and optimizing the backend for improved data handling. The integration testing phase is underway to ensure seamless functionality across all modules. The project is on track to meet its objectives and deliver a robust and efficient schedule management tool.
+
 ### Project Schedule
 ![oos_7_gantt chart](https://github.com/user-attachments/assets/8b8d96c1-7e55-4888-b6bb-bb46d5578a4c)
 
