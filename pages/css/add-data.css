@@ -11,7 +11,7 @@ h1 {
     text-align: center;
     padding: 20px;
     margin: 0;
-    background-color: #6f9c70;
+    background-color: #5c885e;
     color: white;
     font-size: 2rem;
 }
@@ -51,17 +51,9 @@ th,
 td {
     border: 1px solid #dee2e6;
     text-align: center;
-    padding: 8px;
-}
-
-/* 첫 번째 열의 너비 줄이기 */
-th:first-child,
-td:first-child {
-    width: 12%;
-    text-align: center;
-    /* 텍스트 정렬 유지 */
-}
-
+    padding: 12px;
+    cursor: pointer;
+  }
 
 th {
     background-color: #f1f1f1;
@@ -84,15 +76,15 @@ button {
     transition: background-color 0.3s ease;
 }
 
-.back-button {
-    background-color: #6f9c70;
+  .back-button {
+    background-color: #5c885e;
     color: white;
     margin-bottom: 20px;
 }
 
-.back-button:hover {
+  .back-button:hover {
     background-color: #5c885e;
-}
+  }
 
 .submit-button {
     background-color: #6f9c70;

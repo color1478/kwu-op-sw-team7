@@ -76,3 +76,10 @@ tbody tr:hover {
     background-color: #5c885e;
     transform: scale(1.05);
 }
+.search-box {
+    height: 40px; 
+    padding: 0 10px; 
+    font-size: 14px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
