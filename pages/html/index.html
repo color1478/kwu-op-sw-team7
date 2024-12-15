@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../css/index.css">
-
+    <link rel="stylesheet" href="../css/help.css"> <!-- help.css 추가 -->
 </head>
 
 <body>
@@ -16,6 +16,49 @@
         <button onclick="location.href='/html/find.html'">내 그룹 찾기</button>
         <button onclick="location.href='/html/view-list.html'">모임 목록 & 가입</button>
     </div>
+
+    <!-- Help Button -->
+    <button class="help-button" onclick="openModal()">help</button>
+
+    <!-- 모달 창 -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">도움말</h2>
+            <div class="help-list">
+                <div class="help-item">
+                    <span class="circle-icon">✓</span>
+                    <p>"신규 모임 생성"을 통해 새로운 모임을 만드세요.</p>
+                </div>
+                <div class="help-item">
+                    <span class="circle-icon">✓</span>
+                    <p>"내 그룹 찾기"를 통해 내가 가입한 모든 그룹을 볼 수 있습니다.</p>
+                </div>
+                <div class="help-item">
+                    <span class="circle-icon">✓</span>
+                    <p>"모임 목록&가입"을 통해 모임 목록을 검색하고 가입할 수 있습니다.
+                         (그룹 이름과 그룹 코드를 통해 검색합니다.)</p>
+                </div>
+                <div class="help-item">
+                    <span class="circle-icon">✓</span>
+                    <p>그룹 별로 다른 시간표를 적용할 수 있습니다. 
+                        시간표를 입력할 땐 일정이 있는 시간 (안되는 시간)을 입력하세요. </p>
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeModal()">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        // 모달 열기
+        function openModal() {
+            document.getElementById('helpModal').style.display = 'block';
+        }
+
+        // 모달 닫기
+        function closeModal() {
+            document.getElementById('helpModal').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
