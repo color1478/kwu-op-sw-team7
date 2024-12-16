@@ -2,10 +2,10 @@
   "name": "kwu-op-sw-team7",
   "version": "0.0.1",
   "description": "kwu-opensource-sw-team7",
-  "main": "./main.js",
+  "main": "main.js",
   "scripts": {
-    "test": "",
     "start": "electron-forge start",
+    "dev": "node main.js",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },

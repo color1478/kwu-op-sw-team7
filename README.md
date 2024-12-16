@@ -2,12 +2,11 @@
 kwu-opensource-sw-team7
 
 # Project Title
- Match Schedule *수정될 수 있음
+ Match Schedule
 
 ## Intro
 다수의 시간표에서 겹치지 않는 최적의 시간 찾기
 상주 시간표 제작 프로그램
-everytime 연동
 
 ## Details
 설명
