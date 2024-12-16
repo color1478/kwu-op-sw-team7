@@ -47,42 +47,71 @@ expressApp.post("/save-data", (req, res) => {
             }
             const finalGroupId = results[0].group_id;
 
-            // Step 3: 사용자 데이터 삽입
-            const userQuery = `
-                INSERT INTO users (user_name, phone, group_id)
-                VALUES (?, ?, ?)
-                ON DUPLICATE KEY UPDATE user_name = user_name
+            // Step 3: 그룹 최초 생성자 여부 확인
+            const checkCreatorQuery = `
+                SELECT COUNT(*) AS user_count 
+                FROM users 
+                WHERE group_id = ?
             `;
-            db.query(userQuery, [name, phone, finalGroupId], (err) => {
+            db.query(checkCreatorQuery, [finalGroupId], (err, results) => {
                 if (err) {
-                    console.error(`Error inserting user ${name}:`, err);
-                    return res.status(500).send("Failed to save user data.");
+                    console.error(
+                        `Error checking creator for group ${finalGroupId}:`,
+                        err
+                    );
+                    return res
+                        .status(500)
+                        .send("Failed to check group creator.");
                 }
 
-                // Step 4: 가능한 시간 데이터 삽입
-                for (const [day, times] of Object.entries(availability)) {
-                    times.forEach((time) => {
-                        const availabilityQuery = `
-                            INSERT INTO availability_time (group_id, able_day, able_time, overlap)
-                            VALUES (?, ?, ?, 0)
-                            ON DUPLICATE KEY UPDATE overlap = overlap + 1
-                        `;
-                        db.query(
-                            availabilityQuery,
-                            [finalGroupId, parseInt(day), time],
-                            (err) => {
-                                if (err) {
-                                    console.error(
-                                        `Error inserting availability for group ${finalGroupId}:`,
-                                        err
-                                    );
-                                }
-                            }
-                        );
-                    });
-                }
+                const isCreator = results[0].user_count === 0; // 최초 생성자 여부 확인
 
-                res.send("Data saved successfully!");
+                // Step 4: 사용자 데이터 삽입
+                const userQuery = `
+                    INSERT INTO users (user_name, phone, group_id, create)
+                    VALUES (?, ?, ?, ?)
+                    ON DUPLICATE KEY UPDATE user_name = user_name
+                `;
+
+                db.query(
+                    userQuery,
+                    [name, phone, finalGroupId, isCreator],
+                    (err) => {
+                        if (err) {
+                            console.error(`Error inserting user ${name}:`, err);
+                            return res
+                                .status(500)
+                                .send("Failed to save user data.");
+                        }
+
+                        // Step 5: 가능한 시간 데이터 삽입
+                        for (const [day, times] of Object.entries(
+                            availability
+                        )) {
+                            times.forEach((time) => {
+                                const availabilityQuery = `
+                                INSERT INTO availability_time (group_id, able_day, able_time, overlap)
+                                VALUES (?, ?, ?, 0)
+                                ON DUPLICATE KEY UPDATE overlap = overlap + 1
+                            `;
+                                db.query(
+                                    availabilityQuery,
+                                    [finalGroupId, parseInt(day), time],
+                                    (err) => {
+                                        if (err) {
+                                            console.error(
+                                                `Error inserting availability for group ${finalGroupId}:`,
+                                                err
+                                            );
+                                        }
+                                    }
+                                );
+                            });
+                        }
+
+                        res.send("Data saved successfully!");
+                    }
+                );
             });
         });
     });
