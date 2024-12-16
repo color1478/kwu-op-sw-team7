@@ -16,6 +16,7 @@
     "electron-squirrel-startup": "^1.0.1",
     "express": "^4.21.1",
     "kwu-op-sw-team7": "^0.0.1",
+    "mongodb": "^6.11.0",
     "nodemon": "^3.1.7",
     "selenium-webdriver": "^4.26.0"
   },
