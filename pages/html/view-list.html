@@ -12,14 +12,22 @@
     <h1>모임 목록</h1>
     <div class="container">
         <button class="back-button" id="back-button">뒤로가기</button>
-        <button class="action-button" id="add-group-button" onclick="location.href='/html/group-list.html'">모임 찾기 & 모임
+
+        <button class="action-button" id="add-group-button" onclick="location.href='/html/add-data.html'">모임
             추가</button>
+
+        <!-- 검색창 추가 -->
+        <div class="search-container">
+            <label for="search-input">모임 검색:</label>
+            <input type="text" id="search-input" placeholder="Enter group name">
+            <button id="search-button">Search</button>
+        </div>
 
         <table id="group-table">
             <thead>
                 <tr>
-                    <th>Group Name</th>
-                    <th>Group Code</th>
+                    <th>그룹 이름</th>
+                    <th>생성자명</th>
                 </tr>
             </thead>
             <tbody>
