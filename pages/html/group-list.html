@@ -9,21 +9,20 @@
 </head>
 
 <body>
-    <h1>모임 추가</h1>
+    <h1>가입한 모임 목록</h1>
     <div class="container">
         <div class="button-container">
             <button class="back-button" id="back-button">뒤로가기</button>
-            <button class="add-button" id="add-button">모임 추가</button>
         </div>
         <div>
-            <label for="group-search">Search Group:</label>
+            <label for="group-search">Search Group :</label>
             <input type="text" id="group-search" placeholder="Enter group name" />
             <button id="search-button">Search</button>
         </div>
         <div class="group-list" id="group-list">
         </div>
         <div class="code-prompt" id="code-prompt" style="display: none;">
-            <label for="group-code">Enter Group Code:</label>
+            <label for="group-code">Enter Group Code :</label>
             <input type="text" id="group-code" placeholder="Enter group code" />
             <button id="code-submit-button">Submit Code</button>
         </div>
@@ -36,9 +35,9 @@
             window.location.href = "/html/index.html"; // index.html로 이동
         });
 
-        // 모임 추가 버튼 클릭 시 add-group.html로 이동
+        // 모임 추가 버튼 클릭 시 add-data.html로 이동
         document.getElementById("add-button").addEventListener("click", () => {
-            window.location.href = "/html/add-group.html"; // add-group.html로 이동
+            window.location.href = "/html/add-data.html"; // add-data.html로 이동
         });
     </script>
     <script src="../js/group-list.js"></script>
