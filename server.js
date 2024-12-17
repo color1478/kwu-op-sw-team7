@@ -22,68 +22,71 @@ expressApp.get("/", (req, res) => {
 expressApp.post("/save-data", (req, res) => {
     const { name, phone, group, groupCode, availability } = req.body;
 
+    if (!name || !phone || !group || !groupCode || !availability) {
+        return res.status(400).json({ error: "Missing required fields." });
+    }
+
     // Step 1: 그룹 데이터 삽입
     const groupQuery = `
         INSERT INTO group_table (group_name, group_code, unable_day, unable_time)
         VALUES (?, ?, 0, 0)
-        ON DUPLICATE KEY UPDATE group_name = group_name
     `;
     db.query(groupQuery, [group, groupCode], (err, groupResult) => {
         if (err) {
-            console.error(`Error inserting group ${group}:`, err);
-            return res.status(500).send("Failed to save group data.");
+            if (err.code === "ER_DUP_ENTRY") {
+                console.error(`Duplicate group name: ${group}`);
+                return res
+                    .status(409)
+                    .json({ error: "Group name already exists." });
+            } else {
+                console.error(`Error inserting group ${group}:`, err);
+                return res
+                    .status(500)
+                    .json({ error: "Failed to save group data." });
+            }
         }
 
         // Step 2: 그룹 ID 가져오기
-        const groupId = groupResult.insertId || null;
+        const groupId = groupResult.insertId;
 
-        const getGroupIdQuery = `
-            SELECT group_id FROM group_table WHERE group_name = ? AND group_code = ?
+        // 사용자 데이터 삽입
+        const userQuery = `
+            INSERT INTO users (user_name, phone, group_id)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE user_name = user_name
         `;
-        db.query(getGroupIdQuery, [group, groupCode], (err, results) => {
-            if (err || results.length === 0) {
-                console.error(`Error retrieving group ID for ${group}:`, err);
-                return res.status(500).send("Failed to retrieve group ID.");
+        db.query(userQuery, [name, phone, groupId], (err) => {
+            if (err) {
+                console.error(`Error inserting user ${name}:`, err);
+                return res
+                    .status(500)
+                    .json({ error: "Failed to save user data." });
             }
-            const finalGroupId = results[0].group_id;
 
-            // Step 3: 사용자 데이터 삽입
-            const userQuery = `
-                INSERT INTO users (user_name, phone, group_id)
-                VALUES (?, ?, ?)
-                ON DUPLICATE KEY UPDATE user_name = user_name
-            `;
-            db.query(userQuery, [name, phone, finalGroupId], (err) => {
-                if (err) {
-                    console.error(`Error inserting user ${name}:`, err);
-                    return res.status(500).send("Failed to save user data.");
-                }
-
-                // Step 4: 가능한 시간 데이터 삽입
-                for (const [day, times] of Object.entries(availability)) {
-                    times.forEach((time) => {
-                        const availabilityQuery = `
-                            INSERT INTO availability_time (group_id, able_day, able_time, overlap)
-                            VALUES (?, ?, ?, 0)
-                            ON DUPLICATE KEY UPDATE overlap = overlap + 1
-                        `;
-                        db.query(
-                            availabilityQuery,
-                            [finalGroupId, parseInt(day), time],
-                            (err) => {
-                                if (err) {
-                                    console.error(
-                                        `Error inserting availability for group ${finalGroupId}:`,
-                                        err
-                                    );
-                                }
+            // 가능한 시간 데이터 삽입
+            for (const [day, times] of Object.entries(availability)) {
+                times.forEach((time) => {
+                    const availabilityQuery = `
+                        INSERT INTO availability_time (group_id, able_day, able_time, overlap)
+                        VALUES (?, ?, ?, 0)
+                        ON DUPLICATE KEY UPDATE overlap = overlap + 1
+                    `;
+                    db.query(
+                        availabilityQuery,
+                        [groupId, parseInt(day), time],
+                        (err) => {
+                            if (err) {
+                                console.error(
+                                    `Error inserting availability for group ${groupId}:`,
+                                    err
+                                );
                             }
-                        );
-                    });
-                }
+                        }
+                    );
+                });
+            }
 
-                res.send("Data saved successfully!");
-            });
+            res.send("Data saved successfully!");
         });
     });
 });
