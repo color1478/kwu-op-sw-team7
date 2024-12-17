@@ -155,12 +155,12 @@ const client = new MongoClient(uri, {
     },
 });
 
-let db;
+let mongoDB;
 const connectToDatabase = async () => {
-    if (!db) {
+    if (!mongoDB) {
         try {
             await client.connect();
-            db = client.db("comments_db"); // 사용할 데이터베이스 이름
+            mongoDB = client.db("comments_db"); // 사용할 데이터베이스 이름
             console.log("Connected to MongoDB server");
         } catch (err) {
             console.error("Failed to connect to MongoDB server", err);
@@ -172,7 +172,7 @@ const connectToDatabase = async () => {
 // 댓글 로드 함수
 const loadComments = async (pageId) => {
     await connectToDatabase();
-    const collection = db.collection("comments");
+    const collection = mongoDB.collection("comments");
 
     try {
         const comments = await collection
@@ -189,7 +189,7 @@ const loadComments = async (pageId) => {
 // 댓글 저장 함수
 const saveComments = async (pageId, comments) => {
     await connectToDatabase();
-    const collection = db.collection("comments");
+    const collection = mongoDB.collection("comments");
 
     try {
         // MongoDB에 새로운 댓글 추가
