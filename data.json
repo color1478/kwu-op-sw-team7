@@ -347,5 +347,37 @@
         18
       ]
     }
+  },
+  {
+    "name": "sdsd",
+    "phone": "010-9999-9999",
+    "group": "333",
+    "groupCode": "wewe",
+    "availability": {
+      "0": [
+        5,
+        6,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "name": "sd",
+    "phone": "010-9978-7333",
+    "group": "333",
+    "groupCode": "wewe",
+    "availability": {
+      "0": [
+        9,
+        10
+      ],
+      "1": [
+        11,
+        13,
+        14,
+        17
+      ]
+    }
   }
 ]

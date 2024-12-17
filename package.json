@@ -4,6 +4,7 @@
   "description": "kwu-opensource-sw-team7",
   "main": "main.js",
   "scripts": {
+    "test": "",
     "start": "electron-forge start",
     "dev": "node main.js",
     "package": "electron-forge package",
