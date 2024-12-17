@@ -1,46 +1,45 @@
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const expressApp = require("./server"); // Import the Express app
 
-// Electron 부분: Electron 환경에서만 실행
-if (process.versions && process.versions.electron) {
-  const { app, BrowserWindow } = require("electron");
+let mainWindow;
 
-  let mainWindow;
-
-  const createWindow = () => {
+const createWindow = () => {
     mainWindow = new BrowserWindow({
-      width: 800,
-      height: 800,
-      webPreferences: {
-        preload: path.join(__dirname, "preload.js"),
-      },
+        width: 800,
+        height: 800,
+        webPreferences: {
+            preload: path.join(__dirname, "preload.js"), // Optional preload script
+        },
     });
     mainWindow.setMenuBarVisibility(false);
+
+    // Load the Express server URL
     mainWindow.loadURL("http://localhost:8080");
 
     mainWindow.on("closed", () => {
-      mainWindow = null;
+        mainWindow = null;
     });
-  };
+};
 
-  app.whenReady().then(() => {
+app.whenReady().then(() => {
+    // Start the Express server
+    expressApp.listen(8080, () => {
+        console.log("Express server running on http://localhost:8080");
+    });
+
+    // Create the Electron window
     createWindow();
+
     app.on("activate", () => {
-      if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-      }
+        if (BrowserWindow.getAllWindows().length === 0) {
+            createWindow();
+        }
     });
-  });
+});
 
-  app.on("window-all-closed", () => {
+app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
-      app.quit();
+        app.quit();
     }
-  });
-}
-
-// Express 서버 부분
-const PORT = process.env.PORT || 8080;
-expressApp.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
 });
