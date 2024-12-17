@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const commentForm = document.getElementById('comment-form');
     // 현재 페이지 ID 가져오기 (URL의 쿼리 또는 경로 기반)
-    const pageId = new URLSearchParams(window.location.search).get('pageId') || 'default';
+    pageId = "";
     commentPart.style.display = "none";
   
     let fetchedData = []; // 전체 데이터를 저장
@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       //검색 이후에 commet 보이게하기
-    commentPart.style.display = "block";
+        commentPart.style.display = "block";
+        pageId = groupName;
+        fetchComments();
     };
   
     // 데이터 가져와서 초기화
@@ -116,6 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 검색 버튼 클릭 이벤트
     searchButton.addEventListener("click", () => {
       const groupName = searchInput.value.trim();
+      
   
       if (!groupName) {
         groupListDiv.innerHTML = `<p>Please enter a group name to search.</p>`;
@@ -183,6 +186,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert('Error adding comment.');
     }
     });
-     // 초기 댓글 로드
-     fetchComments();
+     
 });

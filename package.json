@@ -2,10 +2,11 @@
   "name": "kwu-op-sw-team7",
   "version": "0.0.1",
   "description": "kwu-opensource-sw-team7",
-  "main": "./main.js",
+  "main": "main.js",
   "scripts": {
     "test": "",
     "start": "electron-forge start",
+    "dev": "node main.js",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -16,6 +17,7 @@
     "electron-squirrel-startup": "^1.0.1",
     "express": "^4.21.1",
     "kwu-op-sw-team7": "^0.0.1",
+    "mongodb": "^6.11.0",
     "nodemon": "^3.1.7",
     "selenium-webdriver": "^4.26.0"
   },
