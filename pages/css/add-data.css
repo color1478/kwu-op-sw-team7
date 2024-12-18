@@ -84,7 +84,10 @@ button {
 
   .back-button:hover {
     background-color: #5c885e;
-  }
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 
 .submit-button {
     background-color: #6f9c70;

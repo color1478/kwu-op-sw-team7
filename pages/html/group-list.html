@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group List</title>
   <link rel="stylesheet" href="../css/group-list.css">
   <link rel="stylesheet" href="../css/comment.css">
+
 </head>
+
 <body>
-  <h1>모임 찾기&모임 추가</h1>
-  <div class="container">
-    <div class="button-container">
-      <button class="back-button" id="back-button">뒤로가기</button>
-      <button class="add-button" id="add-button">모임 추가</button>
+    <h1>가입한 모임 목록</h1>
+    <div class="container">
+        <div class="button-container">
+            <button class="back-button" id="back-button">뒤로가기</button>
+        </div>
+        <div>
+            <label for="group-search">Search Group :</label>
+            <input type="text" id="group-search" placeholder="Enter group name" />
+            <button id="search-button">Search</button>
+        </div>
+        <div class="group-list" id="group-list">
+        </div>
+        <div class="code-prompt" id="code-prompt" style="display: none;">
+            <label for="group-code">Enter Group Code :</label>
+            <input type="text" id="group-code" placeholder="Enter group code" />
+            <button id="code-submit-button">Submit Code</button>
+        </div>
+        <div class="group-data" id="group-data"></div>
     </div>
-    <div>
-      <label for="group-search">Search Group:</label>
-      <input type="text" id="group-search" placeholder="Enter group name" />
-      <button id="search-button">Search</button>
-    </div>
-    <div class="group-list" id="group-list">
-    </div>
-    <div class="code-prompt" id="code-prompt" style="display: none;">
-      <label for="group-code">Enter Group Code:</label>
-      <input type="text" id="group-code" placeholder="Enter group code" />
-      <button id="code-submit-button">Submit Code</button>
-    </div>
-    <div class="group-data" id="group-data"></div>
-  </div>
-  
-  <script>
-    // 뒤로가기 버튼 클릭 시 index.html로 이동
-    document.getElementById("back-button").addEventListener("click", () => {
-      window.location.href = "/html/index.html"; // index.html로 이동
-    });
 
-    // 모임 추가 버튼 클릭 시 add-group.html로 이동
-    document.getElementById("add-button").addEventListener("click", () => {
-      window.location.href = "/html/add-group.html"; // add-group.html로 이동
-    });
-  </script>
-  <script src="../js/group-list.js"></script>
+    <script>
+        // 뒤로가기 버튼 클릭 시 index.html로 이동
+        document.getElementById("back-button").addEventListener("click", () => {
+            window.location.href = "/html/index.html"; // index.html로 이동
+        });
 
-  <div id="comment_part">
-    
-    <form id="comment-form">
-        <input type="text" id="username" placeholder="Your Name" required>
-        <textarea id="comment" placeholder="Your Comment" required></textarea>
-        <button type="submit">Add Comment</button>
-    </form>
-    <div id="comment_section"></div>
+        // 모임 추가 버튼 클릭 시 add-data.html로 이동
+        document.getElementById("add-button").addEventListener("click", () => {
+            window.location.href = "/html/add-data.html"; // add-data.html로 이동
+        });
+    </script>
+    <script src="../js/group-list.js"></script>
+
+    <div id="comment_part">
+
+        <form id="comment-form">
+            <input type="text" id="username" placeholder="Your Name" required>
+            <textarea id="comment" placeholder="Your Comment" required></textarea>
+            <button type="submit">Add Comment</button>
+        </form>
+        <div id="comment_section"></div>
     </div>
-</div>
+    </div>
 
 </body>
+
 </html>
