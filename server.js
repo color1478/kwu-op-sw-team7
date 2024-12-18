@@ -26,7 +26,7 @@ expressApp.post("/save-data", (req, res) => {
         return res.status(400).json({ error: "Missing required fields." });
     }
 
-    // Step 1: 그룹 데이터 삽입
+    // 그룹 데이터 삽입
     const groupQuery = `
         INSERT INTO group_table (group_name, group_code, unable_day, unable_time)
         VALUES (?, ?, 0, 0)
@@ -46,16 +46,18 @@ expressApp.post("/save-data", (req, res) => {
             }
         }
 
-        // Step 2: 그룹 ID 가져오기
+        // 그룹 ID 가져오기
         const groupId = groupResult.insertId;
+
+        const isCreator = groupId ? true : false;
 
         // 사용자 데이터 삽입
         const userQuery = `
-            INSERT INTO users (user_name, phone, group_id)
-            VALUES (?, ?, ?)
+            INSERT INTO users (user_name, phone, group_id, creater)
+            VALUES (?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE user_name = user_name
         `;
-        db.query(userQuery, [name, phone, groupId], (err) => {
+        db.query(userQuery, [name, phone, groupId, isCreator], (err) => {
             if (err) {
                 console.error(`Error inserting user ${name}:`, err);
                 return res
