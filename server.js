@@ -65,6 +65,7 @@ expressApp.post("/save-data", express.json(), (req, res) => {
   });
 });
 
+
 //=================================================================
 // comment기능의 서버기능
 // 특정 페이지의 댓글 파일 경로 생성
@@ -207,5 +208,61 @@ expressApp.post('/api/comments/:pageId', (req, res) => {
 
     res.status(201).json(newComment);
 });
+
+
+// 그룹명 중복 확인 API
+expressApp.get("/check-group", (req, res) => {
+  const { group } = req.query;
+
+  if (!group) {
+    return res.status(400).json({ error: "Group name is required." });
+  }
+
+  const filePath = path.join(__dirname, "data.json");
+
+  // data.json 읽기
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading data.json:", err);
+      return res.status(500).json({ error: "Failed to read data." });
+    }
+
+    try {
+      const existingData = JSON.parse(data);
+      // 그룹명 중복 검사
+      const exists = existingData.some((entry) => entry.group === group);
+
+      res.json({ exists }); // 중복 여부 반환
+    } catch (parseErr) {
+      console.error("Error parsing data.json:", parseErr);
+      return res.status(500).json({ error: "Data parsing error." });
+    }
+  });
+});
+
+
+// API to fetch data.json contents where creator is true
+expressApp.get("/get-data", (req, res) => {
+  const filePath = path.join(__dirname, "data.json");
+
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading data.json:", err);
+      return res.status(500).send("Failed to load data.");
+    }
+
+    try {
+      const allData = JSON.parse(data);
+      // Filter entries where creator is true
+      const filteredData = allData.filter((entry) => entry.creator === true);
+      res.json(filteredData);
+    } catch (parseErr) {
+      console.error("Error parsing data.json:", parseErr);
+      return res.status(500).send("Data parsing error.");
+    }
+  });
+});
+
+
 
 module.exports = expressApp;

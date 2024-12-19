@@ -9,9 +9,9 @@ body {
     align-items: center;
     height: 100vh;
     color: #333;
-  }
-  
-  .container {
+}
+
+.container {
     width: 90%;
     max-width: 600px;
     background-color: white;
@@ -19,66 +19,65 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #007bff;
-  }
-  
-  /* Back Button */
-  .back-button {
+    color: #6f9c70;
+}
+
+/* Back Button */
+.back-button {
     margin-bottom: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #6f9c70;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Loading Message */
-  .loading {
+}
+
+.back-button:hover {
+    background-color: #5c885e;
+}
+
+/* Loading Message */
+.loading {
     font-size: 18px;
     color: #666;
-  }
-  
-  /* Overlap List */
-  ol {
+}
+
+/* Overlap List */
+ol {
     list-style-type: decimal;
     padding-left: 20px;
     margin: 0;
-  }
-  
-  li {
+}
+
+li {
     margin: 10px 0;
     font-size: 18px;
     color: #333;
-  }
-  
-  li strong {
-    color: #007bff;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
+}
+
+li strong {
+    color: #6f9c70;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
     .container {
-      padding: 15px;
+        padding: 15px;
     }
-  
+
     h1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     li {
-      font-size: 16px;
+        font-size: 16px;
     }
-  }
-  
+}

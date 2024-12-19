@@ -61,7 +61,9 @@ button {
 }
 
 button:hover {
-    transform: translateY(-2px);
+    background-color: #5c885e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 #search-button {
@@ -70,16 +72,20 @@ button:hover {
 }
 
 #search-button:hover {
-    background-color: #6f9c70;
+    background-color: #5c885e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 #code-submit-button {
-    background-color: #28a745;
+    background-color: #6f9c70;
     color: white;
 }
 
 #code-submit-button:hover {
-    background-color: #218838;
+    background-color: #5c885e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .back-button {
@@ -94,6 +100,8 @@ button:hover {
 
 .back-button:hover {
     background-color: #6f9c70;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 table {
@@ -125,14 +133,16 @@ td {
 
 .group {
     cursor: pointer;
-    color: #5c925d;
+    color: #6f9c70;
     font-weight: bold;
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .group:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #5c885e;
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .view-schedule-btn {
@@ -140,7 +150,7 @@ td {
     padding: 12px 24px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #28a745;
+    background-color: #6f9c70;
     color: white;
     border: none;
     border-radius: 8px;
@@ -149,5 +159,7 @@ td {
 }
 
 .view-schedule-btn:hover {
-    background-color: #218838;
+    background-color: #5c885e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }

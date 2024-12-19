@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Add Data</h1>
+    <h1>모임 추가</h1>
     <div class="container">
         <button class="back-button" id="back-button">뒤로가기</button>
         <form id="availability-form">
@@ -22,7 +22,10 @@
 
 
             <label for="group">그룹명 :</label>
-            <input type="text" id="group" name="group" placeholder="Enter group name" required>
+            <div class="group-container">
+                <input type="text" id="group" name="group" placeholder="Enter group name" required>
+                <button type="button" id="check-group-button">중복 확인</button>
+            </div>
 
             <label for="group-code">그룹 코드 :</label>
             <input type="text" id="group-code" name="group-code" placeholder="Enter a join code for the group" required>
@@ -49,6 +52,22 @@
         document.getElementById("back-button").addEventListener("click", () => {
             window.location.href = "/html/index.html"; // index.html로 이동
         });
+
+        // Autofill group and group code from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const groupName = urlParams.get("group");
+        const groupCode = urlParams.get("groupCode");
+
+        if (groupName) {
+            document.getElementById("group").value = groupName;
+            document.getElementById("group").readOnly = true;
+        }
+
+        if (groupCode) {
+            document.getElementById("group-code").value = groupCode;
+            document.getElementById("group-code").readOnly = true;
+        }
+
     </script>
     <script src="../js/add-data.js"></script>
 </body>

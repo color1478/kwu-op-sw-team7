@@ -84,7 +84,10 @@ button {
 
   .back-button:hover {
     background-color: #5c885e;
-  }
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 
 .submit-button {
     background-color: #6f9c70;
@@ -97,3 +100,23 @@ button {
     transform: scale(1.05);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
+/* 깔끔한 셀 디자인 */
+#availability-table td {
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  #availability-table td.selected {
+    background-color: #6f9c70; /* 선택된 셀 색상 */
+    color: white;
+    border: 1px solid #6f9c70;
+  }
+  
+  #availability-table td:hover {
+    background-color: #f1f1f1; /* 호버 상태 배경색 */
+  }
+  
