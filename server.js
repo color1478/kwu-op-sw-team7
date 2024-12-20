@@ -54,8 +54,8 @@ expressApp.post("/save-data", (req, res) => {
 
         // 사용자 데이터 삽입
         const userQuery = `
-            INSERT INTO users (user_name, phone, group_id, creater)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO users (user_name, phone, group_id)
+            VALUES (?, ?, ?)
             ON DUPLICATE KEY UPDATE user_name = VALUES(user_name)
         `;
         db.query(userQuery, [name, phone, groupId, true], (err) => {
@@ -81,13 +81,6 @@ expressApp.post("/save-data", (req, res) => {
                                 availabilityQuery,
                                 [groupId, parseInt(day), time],
                                 (err) => {
-                                    if (err) {
-                                        console.error(
-                                            "Error inserting availability:",
-                                            err
-                                        );
-                                        return reject(err);
-                                    }
                                     resolve();
                                 }
                             );
@@ -108,35 +101,48 @@ expressApp.post("/save-data", (req, res) => {
     });
 });
 
-// 데이터 조회 API (SQL에서 그룹 찾기)
+// 그룹 이름만으로 조회 API
 expressApp.get("/search-group", (req, res) => {
-    const { name, phone } = req.query;
+    const { group } = req.query;
 
-    if (!name || !phone) {
-        return res.status(400).json({ error: "Name and phone are required." });
+    if (!group) {
+        return res.status(400).json({ error: "Group name is required." });
     }
 
     const query = `
-        SELECT g.group_name 
-        FROM users u
-        JOIN group_table g ON u.group_id = g.group_id
-        WHERE u.user_name = ? AND u.phone = ?
+        SELECT group_name 
+        FROM group_table 
+        WHERE LOWER(group_name) = LOWER(?)
     `;
 
-    db.query(query, [name, phone], (err, results) => {
+    db.query(query, [group], (err, results) => {
         if (err) {
-            console.error("Error searching for groups:", err);
-            return res.status(500).json({ error: "Failed to search groups." });
+            console.error("Error searching for group:", err);
+            return res.status(500).json({ error: "Failed to search group." });
         }
 
         if (results.length > 0) {
-            const groups = results.map((row) => row.group_name);
-            res.json({ groups });
+            res.json({ groups: results.map((row) => row.group_name) });
         } else {
             res.json({ groups: [] });
         }
     });
 });
+
+// expressApp.get("/get-data", (req, res) => {
+//     const query = `
+//         SELECT group_name AS group, group_code
+//         FROM group_table
+//     `;
+
+//     db.query(query, (err, results) => {
+//         if (err) {
+//             console.error("Error fetching group data:", err);
+//             return res.status(500).json({ error: "Failed to fetch data." });
+//         }
+//         res.json(results);
+//     });
+// });
 
 // ------------------ 댓글 관련 코드 유지 ------------------
 
@@ -152,7 +158,6 @@ if (!fs.existsSync(commentsDir)) {
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
     "mongodb+srv://parkminseo:parkminseo@cluster0.wqsj6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
